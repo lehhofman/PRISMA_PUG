@@ -27,8 +27,8 @@ const read = async (req, res) => {
         console.error("Erro ao ler destinos:", error);
         res.status(500).send("Erro ao ler destinos").end();
     }
-    res.status(200).json(destinos).end();
 }
+
 
 const del = async (req, res) => {
     const id = Number(req.params.id);

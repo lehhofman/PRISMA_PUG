@@ -22,5 +22,8 @@ router.put('/hotel/:id', hoteisController.update);
 router.delete('/hotel/:id', hoteisController.del);
 
 router.post('/pontos', pontosController.create);
+router.get('/pontos', pontosController.read);
+router.delete('/pontos/:id', pontosController.del);
+router.put('/pontos/:id', pontosController.update);
 
 module.exports = router;

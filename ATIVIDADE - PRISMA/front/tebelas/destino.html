@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Destinos</title>
+    <style>
+        .destination-card {
+            background-color: #f2f2f2;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 16px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            border: 1px solid #000;
+            width: calc(15% - 22px); 
+            margin-right: 16px;
+            float: left;
+            clear: none;
+        }
+
+        .blue-card {
+            background-color: #3498db;
+            color: #fff;
+        }
+
+        .yellow-card {
+            background-color: #f39c12;
+            color: #fff;
+        }
+
+        .destination-info {
+            margin-bottom: 8px;
+        }
+
+        .destination-image {
+            width: 100%;
+            height: 150px;
+            border-radius: 8px 8px 0 0;
+            object-fit: cover;
+            margin-bottom: 8px;
+        }
+
+        .destination-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h2>Lista de Destinos</h2>
+    <div id="destination-cards">
+    </div>
+
+    <script>
+        const destinationCards = document.getElementById('destination-cards');
+        
+        fetch('http://localhost:3000/destinos')
+        .then(res => res.json())
+        .then(res => {
+            destinationCards.innerHTML = '';
+        
+            res.forEach((destino, index) => {
+                const cardClass = index % 2 === 0 ? 'blue-card' : 'yellow-card';
+                const dateOnly = new Date(destino.data).toLocaleDateString();
+
+                destinationCards.innerHTML += `
+                    <div class="destination-card ${cardClass}">
+                        <img class="destination-image" src="${destino.imagemUrl}" alt="Imagem do destino">
+                        <div class="destination-title">${destino.destino}</div>
+                        <div class="destination-info">
+                            <strong>ID:</strong> ${destino.id}<br>
+                            <strong>Valor:</strong> R$ ${destino.valor}<br>
+                            <strong>Data:</strong> ${dateOnly}<br>
+                        </div>
+                    </div>`;
+
+                if ((index + 1) % 4 === 0) {
+                    destinationCards.innerHTML += '<div style="clear:both;"></div>';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

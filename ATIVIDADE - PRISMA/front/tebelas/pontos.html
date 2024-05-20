@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Pontos Turísticos</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h2>Lista de Pontos Turísticos</h2>
+    <table id="pontos-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Ponto Turístico</th>
+                <th>Endereço</th>
+                <th>Telefone</th>
+                <th>Valor</th>
+                <th>Destino ID</th>
+            </tr>
+        </thead>
+        <tbody id="pontos-table-body">
+        </tbody>
+    </table>
+
+    <script>
+        const tableBody = document.getElementById('pontos-table-body');
+        
+        fetch('http://localhost:3000/pontos') // Altere a URL conforme necessário
+        .then(res => res.json())
+        .then(res => {
+            tableBody.innerHTML = '';
+        
+            res.forEach(ponto => {
+                tableBody.innerHTML += `
+                    <tr>
+                        <td>${ponto.id}</td>
+                        <td>${ponto.ponto}</td>
+                        <td>${ponto.endereco}</td>
+                        <td>${ponto.telefone}</td>
+                        <td>${ponto.valor}</td>
+                        <td>${ponto.destinoId}</td>
+                    </tr>`;
+            });
+        });
+    </script>
+</body>
+</html>
