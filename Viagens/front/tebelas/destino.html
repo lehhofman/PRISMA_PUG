@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Destinos</title>
+    <style>
+        body {
+            background-color: #001f3f;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar-nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            list-style-type: none;
+        }
+
+        .navbar-nav .nav-link {
+            font-family: Arial, sans-serif;
+            font-size: 20px;
+            margin-right: 210px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-nav .nav-link {
+            color: #1e8bf8;
+            font-weight: bold;
+            margin-left: 60px;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            background-color: #fff348;
+            width: 1872px;
+            height: 60px;
+        }
+
+
+        h2 {
+            font-size: 2.5em;
+            color: white;
+            text-align: center;
+            margin-top: 20px;
+            text-shadow: 3px 3px 3px rgba(0, 0, 50, 0.5), 0px 4px 4px rgba(0, 0, 100, 0.7), -3px -3px 3px rgba(0, 0, 150, 0.7);
+        }
+
+        #destination-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .destination-card {
+            background-color: #f2f2f2;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border: 2px solid #ffd700; /* Borda amarela */
+            width: 300px;
+            margin: 10px;
+            margin-left: 70px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .destination-card:hover {
+            transform: scale(1.05);
+        }
+
+        .destination-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .destination-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #001f3f;
+            margin: 10px 0;
+        }
+
+        .destination-info {
+            font-size: 1em;
+            color: #333;
+            width: 100%;
+            padding: 0 20px 20px;
+        }
+
+        .destination-info strong {
+            display: block;
+            margin-top: 10px;
+        }
+
+        .valor-button {
+            font-size: 1.2em;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../sobre.html">Sobre nós</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="./tebelas/destino.html">Destinos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="./hoteis.html">Hotéis</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="./pontos.html">Pontos Turisticos</a>
+            </li>
+        </ul>
+    </nav>
+
+    <h2>Destinos para Viver</h2>
+    <div id="destination-cards"></div>
+
+    <script>
+        const destinationCards = document.getElementById('destination-cards');
+
+        fetch('http://localhost:3000/destinos')
+            .then(res => res.json())
+            .then(res => {
+                destinationCards.innerHTML = '';
+
+                res.forEach((destino, index) => {
+                    const cardClass = index % 2 === 0 ? 'blue-card' : 'yellow-card';
+                    const dateOnly = new Date(destino.data).toLocaleDateString();
+
+                    destinationCards.innerHTML += `
+                        <div class="destination-card ${cardClass}">
+                            <img class="destination-image" src="${destino.imagemUrl}" alt="Imagem do destino">
+                            <div class="destination-title">${destino.destino}</div>
+                            <div class="destination-info">
+                                <strong>Data:</strong> ${dateOnly}<br>
+                                <button class="valor-button">R$ ${destino.valor}</button>
+                            </div>
+                        </div>`;
+                });
+            });
+    </script>
+</body>
+
+</html>

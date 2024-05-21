@@ -2,7 +2,7 @@ const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
 const create = async (req, res) => {
-  const { hotel, valor, avaliacao, email, site, destinoId } = req.body;
+  const { hotel, valor, avaliacao, email, site, imagemUrl, destinoId } = req.body;
   try {
     const newHotel = await prisma.hotel.create({
       data: {
@@ -11,6 +11,7 @@ const create = async (req, res) => {
         avaliacao,
         email,
         site,
+        imagemUrl,
         destino: { connect: { id: destinoId } }
       }
     });

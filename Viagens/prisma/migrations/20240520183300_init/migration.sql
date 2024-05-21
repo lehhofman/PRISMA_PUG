@@ -4,6 +4,7 @@ CREATE TABLE `Destino` (
     `destino` VARCHAR(191) NOT NULL,
     `valor` DOUBLE NOT NULL,
     `data` DATETIME(3) NOT NULL,
+    `imagemUrl` VARCHAR(191) NOT NULL,
 
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
@@ -15,6 +16,7 @@ CREATE TABLE `PontosTuristico` (
     `endereco` VARCHAR(191) NOT NULL,
     `telefone` VARCHAR(191) NOT NULL,
     `valor` DOUBLE NOT NULL,
+    `imagemUrl` VARCHAR(191) NOT NULL,
     `destinoId` INTEGER NOT NULL,
 
     PRIMARY KEY (`id`)
@@ -28,6 +30,7 @@ CREATE TABLE `Hotel` (
     `avaliacao` INTEGER NOT NULL,
     `email` VARCHAR(191) NOT NULL,
     `site` VARCHAR(191) NOT NULL,
+    `imagemUrl` VARCHAR(191) NOT NULL,
     `destinoId` INTEGER NOT NULL,
 
     PRIMARY KEY (`id`)
