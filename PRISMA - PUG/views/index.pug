@@ -1,0 +1,73 @@
+doctype html
+html(lang="pt-br")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Escola ACME
+        link(rel='stylesheet', href='style.css')
+        link(rel='shortcut icon', href='icone.png')
+    body
+        header
+            h1 Escola ACME
+            img(id="bmenu", onclick="menu.classList.toggle('oculto')", src="menu.png")
+        nav(class="menu oculto", id="menu")
+            button(onclick="window.location.href='/'") Turmas
+            button(onclick="window.location.href='/aluno'") Alunos
+            button(onclick="window.location.href='/professor'") Professores
+        main
+            nav
+                button(onclick="window.location.href='/'") Turmas
+                button(onclick="window.location.href='/aluno'") Alunos
+                button(onclick="window.location.href='/professor'") Professores
+            div(class="container")
+                each turma in turmas
+                    div(class="card")
+                        p(class="titulo")
+                            b Turma:
+                            i #{turma.abreviacao}
+                        p(class="dados") #{turma.nome}
+                        p(class="dados")
+                            b Id da turma:
+                            i #{turma.id}
+                        button(onclick=`m${turma.id}.classList.remove('oculto')`) Detalhes
+                    div(class="modal oculto",id=`m${turma.id}`)
+                        div(class="janela")
+                            div(class="modalCabecalho")
+                                h2 Detalhes da turma #{turma.abreviacao}
+                                button(onclick=`m${turma.id}.classList.add('oculto')`) &nbsp;X&nbsp;
+                            h3 Alunos
+                            hr
+                            div(class="grade")
+                                p RA
+                                p Nome
+                                hr
+                                hr
+                                each aluno in turma.alunos
+                                    p #{aluno.ra}
+                                    p #{aluno.nome}
+                            h3 Professores
+                            hr
+                            div(class="grade")
+                                p Nome
+                                p Especialidade
+                                hr
+                                hr
+                                each professor in turma.professores
+                                    p #{professor.professor.nome}
+                                    p #{professor.professor.especialidade}
+                            button(onclick=`m${turma.id}.classList.add('oculto')`) Cancelar
+        footer
+            button(onclick="modalCreate.classList.remove('oculto')") Nova Turma
+            h2 By Prof. Wellington
+        div(class="modal oculto",id="modalCreate")
+            div(class="janela")
+                div(class="modalCabecalho")
+                    h2 Cadastro de Turmas
+                    button(onclick="modalCreate.classList.add('oculto')") &nbsp;X&nbsp;
+                form(method="post", action="/turma")
+                    div(class="grade")
+                        label Nome:
+                        input(type="text",name="nome",placeholder="Digite o nome da turma", required)
+                        label Abreviação:
+                        input(type="text",name="abreviacao",placeholder="Sigla", required)
+                    input(type="submit", value="Cadastrar nova turma")

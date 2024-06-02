@@ -1,0 +1,57 @@
+doctype html
+html(lang="pt-br")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Escola ACME
+        link(rel='stylesheet', href='style.css')
+        link(rel='shortcut icon', href='icone.png')
+    body
+        header
+            h1 Escola ACME
+            img(id="bmenu", onclick="menu.classList.toggle('oculto')", src="menu.png")
+        nav(class="menu oculto", id="menu")
+            button(onclick="window.location.href='/'") Turmas
+            button(onclick="window.location.href='/aluno'") Alunos
+            button(onclick="window.location.href='/professor'") Professores
+        main
+            nav
+                button(onclick="window.location.href='/'") Turmas
+                button(onclick="window.location.href='/aluno'") Alunos
+                button(onclick="window.location.href='/professor'") Professores
+            div(class="container")
+                table
+                    thead
+                        tr
+                            th Id
+                            th Nome Completo
+                            th Especialidade
+                            th Turmas
+                            th Ações
+                    tbody
+                        each professor in professores
+                            tr
+                                td= professor.id
+                                td= professor.nome
+                                td= professor.especialidade
+                                td 
+                                    each turma in professor.turmas
+                                        p= turma.turma.abreviacao
+                                td
+                                    button(onclick=`prof${professor.id}.classList.remove('oculto')`, style="width: fit-content;") &nbsp;*&nbsp;
+                                    div(class="modal oculto",id=`prof${professor.id}`)
+                                        div(class="janela")
+                                            div(class="modalCabecalho")
+                                                h3 Alterar dados do professor Id: #{professor.id}
+                                                button(onclick=`prof${professor.id}.classList.add('oculto')`) &nbsp;X&nbsp;
+                                            form(action=`/professor/${professor.id}?_method=PUT`, method='POST')
+                                                div(class="grade")
+                                                    label Nome:
+                                                    input(type="text", name="nome", value=professor.nome, required)
+                                                    label Especiaidade:
+                                                    input(type="text", name="especialidade", value=professor.especialidade, required)
+                                                input(type="submit",value="Alterar")
+
+        footer
+            button Novo Professor
+            h2 By Prof. Wellington

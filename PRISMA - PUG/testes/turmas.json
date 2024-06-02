@@ -1,0 +1,18 @@
+[
+    {
+        "nome":"Desenvolvimento de Sistemas Segundo Semestre",
+        "abreviacao":"2DES"
+    },
+    {
+        "nome":"Desenvolvimento de Sistemas Primeiro Semestre Integrado JULIA",
+        "abreviacao":"1DES"
+    },
+    {
+        "nome":"Eletrônica Primeiro Semestre",
+        "abreviacao":"1EM"
+    },
+    {
+        "nome":"Mecatrônica Primeiro Semestre",
+        "abreviacao":"1MEC"
+    }
+]

@@ -1,0 +1,74 @@
+[
+    {
+        "ra": "RA0335",
+        "nome": "Adauton Martins",
+        "nascimento": "2000-03-01T00:00:00.000Z",
+        "idTurma": 1
+    },
+    {
+        "ra": "RA0336",
+        "nome": "Maria Moreno",
+        "nascimento": "2000-03-13T00:00:00.000Z",
+        "idTurma": 1
+    },
+    {
+        "ra": "RA0337",
+        "nome": "Passos Dias Aguiar",
+        "nascimento": "2000-02-05T00:00:00.000Z",
+        "idTurma": 1
+    },
+    {
+        "ra": "RA0338",
+        "nome": "Juliana Lemos",
+        "nascimento": "2002-10-06T00:00:00.000Z",
+        "idTurma": 1
+    },
+    {
+        "ra": "RA0339",
+        "nome": "Jacinto Penna",
+        "nascimento": "2006-11-16T00:00:00.000Z",
+        "idTurma": 1
+    },
+    {
+        "ra": "RA0340",
+        "nome": "Juliana Lemos",
+        "nascimento": "2004-05-15T00:00:00.000Z",
+        "idTurma": 1
+    },
+    {
+        "ra": "RA0341",
+        "nome": "Fábio Silva Martins",
+        "nascimento": "2000-03-01T00:00:00.000Z",
+        "idTurma": 2
+    },
+    {
+        "ra": "RA0342",
+        "nome": "Albertina Moreno",
+        "nascimento": "2008-03-13T00:00:00.000Z",
+        "idTurma": 2
+    },
+    {
+        "ra": "RA0343",
+        "nome": "Alexandre Aguiar",
+        "nascimento": "2005-02-05T00:00:00.000Z",
+        "idTurma": 2
+    },
+    {
+        "ra": "RA0344",
+        "nome": "Patrícia Oliveira",
+        "nascimento": "2002-10-11T00:00:00.000Z",
+        "idTurma": 2
+    },
+    {
+        "ra": "RA0345",
+        "nome": "José Roberto Garcia",
+        "nascimento": "2003-11-26T00:00:00.000Z",
+        "idTurma": 3
+    },
+    {
+        "ra": "RA0346",
+        "nome": "Sílvia Mattos",
+        "nascimento": "2004-05-11T00:00:00.000Z",
+        "idTurma": 3
+    }
+]
