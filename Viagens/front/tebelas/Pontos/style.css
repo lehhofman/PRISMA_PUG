@@ -1,0 +1,252 @@
+body {
+    background-color: #001f3f;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.navbar-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style-type: none;
+}
+
+.navbar-nav .nav-link {
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    margin-right: 210px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link {
+    color: #1e8bf8;
+    font-weight: bold;
+    margin-left: 60px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff348;
+    width: 100%;
+    height: 60px;
+}
+
+h2 {
+    font-size: 2.5em;
+    color: white;
+    text-align: center;
+    margin: 20px 0;
+    text-shadow: 3px 3px 3px rgba(0, 0, 50, 0.5), 0px 4px 4px rgba(0, 0, 100, 0.7), -3px -3px 3px rgba(0, 0, 150, 0.7);
+}
+
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 60px;
+    margin-top: 10px;
+}
+
+.tourist-card {
+    background-color: #f2f2f2;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border: 2px solid #ffd700;
+    width: calc(18% - 22px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    transition: box-shadow 0.3s ease;
+}
+
+.tourist-card:hover {
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.tourist-image {
+    width: 100%;
+    height: 150px;
+    border-radius: 8px 8px 0 0;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.tourist-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #001f3f;
+}
+
+.tourist-info {
+    font-size: 16px;
+    font-weight: bold;
+    color: #1d70c4;
+    margin-bottom: 10px;
+    text-align: center;
+    /* Centralizar o texto */
+}
+
+.valor-button {
+    font-size: 18px;
+    background-color: #4caf50;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 10%;
+    width: 100px;
+    line-height: 40px;
+    text-align: center;
+    cursor: pointer;
+    margin-top: auto;
+    /* Alinhar o botão ao final do card */
+}
+
+/* Estilo dos botões de ação */
+.action-buttons {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: none;
+    gap: 5px;
+    flex-direction: column;
+}
+
+.action-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.action-button:hover {
+    background-color: #0056b3;
+}
+
+.action-button.delete {
+    background-color: #dc3545;
+}
+
+.action-button.delete:hover {
+    background-color: #c82333;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 8px;
+    position: relative;
+}
+
+h3 {
+    font-size: 2.3em;
+    color: rgb(43, 60, 212);
+    text-align: center;
+    margin-top: 20px;
+    text-shadow: 3px 3px 3px rgb(255, 255, 255);
+}
+
+.modal-content h3 {
+    margin-bottom: 10px;
+}
+
+.modal-content input,
+.modal-content textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.modal-content button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.modal-content button:hover {
+    background-color: #0056b3;
+}
+
+.modal-content button.delete {
+    background-color: #dc3545;
+}
+
+.modal-content button.delete:hover {
+    background-color: #c82333;
+}
+
+.close {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    font-size: 28px;
+    color: #333;
+    cursor: pointer;
+}
+
+.bbn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.bbn .nav-item {
+    list-style: none;
+    margin-left: 30px;
+}
+
+.bbn .nav-link {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.bbn .nav-link:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.bbn .nav-link:active {
+    background-color: #003f7f;
+    transform: scale(0.95);
+}

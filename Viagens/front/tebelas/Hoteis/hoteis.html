@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Hotéis</title>
+    <link rel="stylesheet" href="./style.css">
+
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <ul class="navbar-nav">
+
+            <li class="nav-item">
+                <a class="nav-link home" href="../../index.html">Home</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link sobre" href="../../sobre.html">Sobre nós</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link sobre" href="../Destino/destino.html">Destinos</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link sobre" href="..//Hoteis/hoteis.html">Hotéis</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link sobre" href="../Pontos/pontos.html">Pontos Turisticos</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+    <div class="bbn">
+
+        <h2>Hotéis para sua Estadia</h2>
+        
+        <li class="nav-item">
+
+            <a class="nav-link" href="#" onclick="openAddModal()">Adicionar Hotel</a>
+
+        </li>
+
+    </div>
+
+    <div id="hotel-cards"></div>
+
+    <div id="modifyModal" class="modal">
+
+        <div class="modal-content">
+
+            <span class="close">&times;</span>
+            <h3>Modificar Hotel</h3>
+
+            <input type="text" id="modal-title" class="modal-input" placeholder="Título">
+            <input type="text" id="modal-email" class="modal-input" placeholder="Email">
+            <input type="text" id="modal-site" class="modal-input" placeholder="Site">
+            <input type="text" id="modal-valor" class="modal-input" placeholder="Valor">
+            <button class="modal-button" id="saveChanges">Salvar</button>
+
+        </div>
+
+    </div>
+
+    <div id="addModal" class="modal">
+
+        <div class="modal-content">
+
+            <span class="close">&times;</span>
+            <h3>Adicionar Novo Hotel</h3>
+
+            <input type="text" id="modal-add-title" class="modal-input" placeholder="Título">
+            <input type="text" id="modal-add-email" class="modal-input" placeholder="Email">
+            <input type="text" id="modal-add-site" class="modal-input" placeholder="Site">
+            <input type="text" id="modal-add-valor" class="modal-input" placeholder="Valor">
+            <input type="text" id="modal-add-avaliacao" class="modal-input" placeholder="Avaliação (1-5)">
+            <input type="text" id="modal-add-imagem" class="modal-input" placeholder="URL da Imagem">
+            <button class="modal-button" id="addHotel">Adicionar</button>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

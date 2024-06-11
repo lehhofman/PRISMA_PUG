@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Destinos</title>
+    <link rel="stylesheet" href="./style.css">
+
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <ul class="navbar-nav">
+
+            <li class="nav-item">
+                <a class="nav-link home" href="../../index.html">Home</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link sobre" href="../../sobre.html">Sobre nós</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link sobre" href="../Destino/destino.html">Destinos</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link sobre" href="../Hoteis/hoteis.html">Hotéis</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link sobre" href="../Pontos/pontos.html">Pontos Turisticos</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+    <div class="bbn">
+
+        <h2>Destinos para Viver</h2>
+
+        <li class="nav-item">
+            <a class="nav-link" href="#" onclick="openAddModal()">Adicionar Destino</a>
+        </li>
+
+    </div>
+
+    <div id="destination-cards"></div>
+
+    <div id="modifyModal" class="modal">
+
+        <div class="modal-content">
+
+            <span class="close">&times;</span>
+            <h3>Modificar Destino</h3>
+
+            <input type="text" id="modal-title" class="modal-input" placeholder="Título">
+            <input type="date" id="modal-date" class="modal-input" placeholder="Data">
+            <input type="text" id="modal-value" class="modal-input" placeholder="Valor">
+            <button class="modal-button" id="saveChanges">Salvar</button>
+
+        </div>
+
+    </div>
+
+    <div id="addModal" class="modal">
+
+        <div class="modal-content">
+            
+            <span class="close">&times;</span>
+            <h3>Adicionar Destino</h3>
+
+            <input type="text" id="add-title" class="modal-input" placeholder="Título">
+            <input type="date" id="add-date" class="modal-input" placeholder="Data">
+            <input type="text" id="add-value" class="modal-input" placeholder="Valor">
+            <input type="text" id="add-image-url" class="modal-input" placeholder="URL da Imagem">
+            <button class="modal-button" id="addDestination">Adicionar</button>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+    
+</body>
+
+</html>

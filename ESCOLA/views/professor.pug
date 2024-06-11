@@ -1,0 +1,83 @@
+doctype html
+html(lang="pt-br")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title Escola ACME
+        link(rel='stylesheet' href='style.css')
+        link(rel='shortcut icon' href='icone.png')
+    body
+        header
+            h1 Escola ACME
+            img(id="bmenu" onclick="menu.classList.toggle('oculto')" src="menu.png")
+        nav(class="menu oculto" id="menu")
+            button(onclick="window.location.href='/'") Turmas
+            button(onclick="window.location.href='/aluno'") Alunos
+            button(onclick="window.location.href='/professor'") Professores
+        main
+            nav
+                button(onclick="window.location.href='/'") Turmas
+                button(onclick="window.location.href='/aluno'") Alunos
+                button(onclick="window.location.href='/professor'") Professores
+            div(class="container")
+                table
+                    thead
+                        tr
+                            th Id
+                            th Nome Completo
+                            th Especialidade
+                            th Turmas
+                            th Ações
+                    tbody
+                        each professor in professores
+                            tr
+                                td= professor.id
+                                td= professor.nome
+                                td= professor.especialidade
+                                td 
+                                    each turma in professor.turmas
+                                        p= turma.turma.abreviacao
+                                td
+                                    button(onclick=`prof${professor.id}.classList.remove('oculto')`, style="width: fit-content;") &nbsp;*&nbsp;
+                                    div(class="modal oculto",id=`prof${professor.id}`)
+                                        div(class="janela")
+                                            div(class="modalCabecalho")
+                                                h3 Alterar dados do professor Id: #{professor.id}
+                                                button(onclick=`prof${professor.id}.classList.add('oculto')`) &nbsp;X&nbsp;
+                                            form(action=`/professor/${professor.id}?_method=PUT`, method='POST')
+                                                div(class="grade")
+                                                    label Nome:
+                                                    input(type="text" name="nome", value=professor.nome, required)
+                                                    label Especialidade:
+                                                    input(type="text" name="especialidade", value=professor.especialidade, required)
+                                                    label Turmas:
+                                                    select(name="turmas", multiple=true)
+                                                        each turma in todasAsTurmas
+                                                            option(value=turma.id selected=professor.turmas.some(pt => pt.idTurma === turma.id))= turma.abreviacao
+                                                input(type="submit" value="Alterar")
+
+                                    // Formulário de exclusão
+                                    form(action=`/professor/${professor.id}?_method=DELETE`, method='POST' style="display:inline;")
+                                        input(type="submit" value="Excluir" style="background-color: var(--ultima); color: black;")
+
+        footer
+            button(onclick="modalCreate.classList.remove('oculto')") Novo Professor
+            h2 By Escola
+        div(class="modal oculto" id="modalCreate")
+            div(class="janela")
+                div(class="modalCabecalho")
+                    h2 Cadastro de Professores
+                    button(onclick="modalCreate.classList.add('oculto')") &nbsp;X&nbsp;
+                form(method="post" action="/professor")
+                    div(class="grade")
+                        label Nome:
+                        input(type="text" name="nome" placeholder="Digite o nome do professor", required)
+                        label Especialidade:
+                        input(type="text" name="especialidade" placeholder="", required)
+                        label Turmas:
+                        select(name="turmas", multiple=true)
+                            each turma in todasAsTurmas
+                                option(value=turma.id)= turma.abreviacao
+                    input(type="submit" value="Cadastrar novo professor")
+
+

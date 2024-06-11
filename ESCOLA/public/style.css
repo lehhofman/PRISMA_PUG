@@ -1,0 +1,270 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: medium;
+}
+
+:root {
+  --primaria: #3d3d34;
+  --secundaria: #5d5c49;
+  --media: #dcdbaf;
+  --ultima: #f4f4dd;
+}
+
+body {
+  height: 100vh;
+  background-color: var(--ultima);
+}
+
+header {
+  height: 10vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-bottom: solid 1px var(--media);
+  box-shadow: 2px 2px 2px var(--secundaria);
+}
+
+footer {
+  height: 10vh;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  border-bottom: solid 1px var(--media);
+  box-shadow: 2px 2px 2px var(--secundaria);
+}
+
+footer button {
+  width: fit-content;
+}
+
+main {
+  height: 80vh;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 15% 85%;
+  border-bottom: solid 1px var(--media);
+}
+
+nav {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: baseline;
+  background-color: var(--media);
+}
+
+button {
+  padding: 10px;
+  margin: 10px;
+  width: 90%;
+  font-size: small;
+  border: none;
+  border-radius: 25px;
+  background-color: var(--ultima);
+  box-shadow: 2px 2px 2px var(--secundaria);
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--secundaria);
+  color: var(--ultima);
+}
+
+form {
+  display: flex;
+  width: 100%;
+  height: 80%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+input {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 25px;
+  border: none;
+  box-shadow: 1px 1px 3px var(--primaria);
+  width: fit-content;
+}
+
+input[type='submit']:hover {
+  cursor: pointer;
+}
+
+input[type='submit']:hover {
+  background-color: var(--secundaria);
+  color: var(--ultima);
+}
+
+h1 {
+  color: var(--primaria);
+  font-size: 35px;
+  text-shadow: 2px 2px 2px var(--media);
+}
+
+h2 {
+  color: var(--primaria);
+  font-size: 22px;
+  text-shadow: 2px 2px 2px var(--media);
+}
+
+table {
+  width: 100%;
+  margin: 20px;
+}
+
+th {
+  padding: 10px;
+}
+
+tr:nth-child(odd) {
+  background: var(--media);
+}
+
+td {
+  text-align: center;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  max-height: 80vh;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: auto;
+}
+
+.card {
+  width: 180px;
+  height: 250px;
+  padding: 10px;
+  margin: 10px;
+  background-color: var(--ultima);
+  border-radius: 5px;
+  border: solid 1px var(--media);
+  box-shadow: 2px 2px 2px var(--media);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card p {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.modal {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.janela {
+  position: relative;
+  top: 10vh;
+  width: fit-content;
+  height: fit-content;
+  background-color: var(--media);
+  box-shadow: 1px 1px 5px var(--primaria);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.menu {
+  position: absolute;
+  top: 10vh;
+  width: 70%;
+  height: fit-content;
+  margin: 10px;
+  background-color: var(--media);
+  box-shadow: 1px 1px 5px var(--primaria);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.modalCabecalho {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modalCabecalho button {
+  width: fit-content;
+}
+
+.grade {
+  display: grid;
+  grid-template-columns: 30% 70%;
+  align-items: center;
+  max-height: 40vh;
+  overflow-y: auto;
+}
+
+#bmenu {
+  display: none;
+}
+
+.oculto {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  main {
+    display: flex;
+  }
+
+  main nav {
+    display: none;
+  }
+
+  .card {
+    width: 100%;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  header {
+    flex-direction: row-reverse;
+    justify-content: center;
+  }
+
+  #bmenu {
+    display: flex;
+    width: fit-content;
+    width: 40px;
+    margin: 10px;
+    background-color: var(--media);
+    border-radius: 25px;
+    padding: 5px;
+  }
+  button {
+    width: fit-content;
+    padding-left: 40px;
+    padding-right: 40px;
+    background-color: var(--media);
+  }
+  .menu button {
+    width: 90%;
+    background-color: var(--ultima);
+  }
+  .janela {
+    background-color: var(--ultima);
+  }
+}

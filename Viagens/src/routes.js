@@ -23,6 +23,7 @@ router.delete('/hotel/:id', hoteisController.del);
 
 router.post('/pontos', pontosController.create);
 router.get('/pontos', pontosController.read);
+router.get('/pontos/:id', pontosController.get);
 router.delete('/pontos/:id', pontosController.del);
 router.put('/pontos/:id', pontosController.update);
 

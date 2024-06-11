@@ -1,0 +1,30 @@
+[
+    {
+        "idProf": 3,
+        "idTurma": 1
+    },
+    {
+        "idProf": 4,
+        "idTurma": 1
+    },
+    {
+        "idProf": 1,
+        "idTurma": 3
+    },
+    {
+        "idProf": 1,
+        "idTurma": 1
+    },
+    {
+        "idProf": 2,
+        "idTurma": 2
+    },
+    {
+        "idProf": 3,
+        "idTurma": 2
+    },
+    {
+        "idProf": 5,
+        "idTurma": 4
+    }
+]
